@@ -1636,6 +1636,7 @@ from .zattoo import (
 )
 from .zdf import ZDFIE, ZDFChannelIE
 from .zhihu import ZhihuIE
+from .zhibo8 import Zhibo8IE
 from .zingmp3 import (
     ZingMp3IE,
     ZingMp3AlbumIE,
