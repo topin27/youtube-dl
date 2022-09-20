@@ -29,6 +29,8 @@ class Zhibo8IE(InfoExtractor):
         title = self._html_search_regex(r'<h1>(.+?)</h1>', webpage, 'title')
         video_url = self._search_regex(r'video_url: "(.+?)"', webpage, 'video_url')
         id = re.search(r'https://vodzz.duoduocdn.com/vod-player/(\d+)/(\d+)/.*', video_url)
+        if not id:
+            id = re.search(r'https://vodapp.duoduocdn.com/vod-player/(\d+)/(\d+)/.*', video_url)
         json_url = 'https://playvideo.qcloud.com/getplayinfo/v4/{}/{}'.format(id.group(1), id.group(2))
         json_content = self._download_json(json_url, video_id)
         video_url = json_content['videoInfo']['sourceVideo']['url']
